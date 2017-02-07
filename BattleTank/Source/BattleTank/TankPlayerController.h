@@ -19,4 +19,5 @@ public:
 	virtual void PlayerTick(float DeltaTime) override;
 	ATank* GetControlledTank() const;
 	void AimTowardsCrosshair();
+	bool GetSightRayHitLocation(FVector &HitLocation) const;
 };
