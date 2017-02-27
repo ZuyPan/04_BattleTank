@@ -21,7 +21,7 @@ void UTankAimingComponent::AimAt(FVector HitLocation, float LunchSpeed)
 	FVector OutLunchVelocity;
 	FVector StartLocation = Barrel->GetSocketLocation(FName("Projectile"));
 
-	bool bHaveAimSolution = UGameplayStatics::SuggestProjectileVelocity(this, OutLunchVelocity, StartLocation, HitLocation, LunchSpeed, ESuggestProjVelocityTraceOption::DoNotTrace);
+	bool bHaveAimSolution = UGameplayStatics::SuggestProjectileVelocity(this, OutLunchVelocity, StartLocation, HitLocation, LunchSpeed, false, 0, 0, ESuggestProjVelocityTraceOption::DoNotTrace);
 	float Time = GetWorld()->GetTimeSeconds();
 	if (bHaveAimSolution)
 	{
