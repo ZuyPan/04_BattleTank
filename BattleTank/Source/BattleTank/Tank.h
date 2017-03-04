@@ -33,7 +33,7 @@ public:
 	void SetTurretReference(UTankTurret* TurretToSet);
 
 	UPROPERTY(EditAnywhere, Category = Firing)
-	float LunchSpeed = 100000;
+	float LunchSpeed = 4000;
 protected:
 	UTankAimingComponent* TankAimingComponent = nullptr;
 };
