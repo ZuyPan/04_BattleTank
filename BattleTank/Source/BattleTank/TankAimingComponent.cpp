@@ -22,17 +22,11 @@ void UTankAimingComponent::AimAt(FVector HitLocation, float LunchSpeed)
 	FVector OutLunchVelocity;
 	FVector StartLocation = Barrel->GetSocketLocation(FName("Projectile"));
 
-	bool bHaveAimSolution = UGameplayStatics::SuggestProjectileVelocity(this, OutLunchVelocity, StartLocation, HitLocation, LunchSpeed, false, 0, 0, ESuggestProjVelocityTraceOption::DoNotTrace);
-	float Time = GetWorld()->GetTimeSeconds();
+	bool bHaveAimSolution = UGameplayStatics::SuggestProjectileVelocity(this, OutLunchVelocity, StartLocation, HitLocation, LunchSpeed, false, 0, 0, ESuggestProjVelocityTraceOption::DoNotTrace);	
 	if (bHaveAimSolution)
 	{
 		auto AimDirection = OutLunchVelocity.GetSafeNormal();
 		MoveBarrelTowards(AimDirection);
-		UE_LOG(LogTemp, Warning, TEXT("%f: Aim solution found"), Time);
-	}
-	else
-	{
-		UE_LOG(LogTemp, Warning, TEXT("%f: No aim solve found"), Time);
 	}
 }
 

@@ -34,6 +34,9 @@ public:
 
 	UPROPERTY(EditAnywhere, Category = Firing)
 	float LunchSpeed = 4000;
+
+	UFUNCTION(BlueprintCallable, Category = Firing)
+	void Fire();
 protected:
 	UTankAimingComponent* TankAimingComponent = nullptr;
 };
